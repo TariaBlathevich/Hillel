@@ -3,11 +3,12 @@ package com.Taria;
 
 import java.util.Scanner;
 
-public class Main {
-   static int burgerPrice = 50;
+public class Main<numberTwoStep> {
+    static int burgerPrice = 50;
     static int saus = 10;
     static int cheese = 20;
     static int meat = 30;
+
     public static void main(String[] args) {
         System.out.println("Выберите: 0, и получите бургер без добавок; 1, чтобы добавить сыр; 2 чтобы добавить соус; 3, чтобы добавить еще котлету");
 
@@ -16,14 +17,31 @@ public class Main {
 
         if (number == 0) {
             System.out.println("Ваш бургер будет готов через 7 минут! " + burgerPrice + "грн");
-            } else if (number == 1) {
-               System.out.println("с дополнительным соусом " + saus + "грн");
-            } else if (number == 2) {
-                System.out.println("с дополнительным сыром " + cheese + "грн");
-            } else if (number == 3) {
-                System.out.println("с дополнительной котлетой " + meat + "грн");
-            } else {
-                System.out.println("Подтвердите свой заказ " + burgerPrice + "грн");
-            }
+        } else if (number == 1) {
+            System.out.println("с дополнительным соусом " + (saus + burgerPrice) + "грн");
+        } else if (number == 2) {
+            System.out.println("с дополнительным сыром " + cheese + burgerPrice + "грн");
+        } else if (number == 3) {
+            System.out.println("с дополнительной котлетой " + meat + burgerPrice + "грн");
+        } else {
+            System.out.println("Подтвердите свой заказ " + burgerPrice + "грн");
+        }
+
+        System.out.println("Что-нибудь еще?");
+        Scanner scaan = new Scanner(System.in);
+        int numberTwoStep = scaan.nextInt();
+
+        if (numberTwoStep == 0) {
+            System.out.println("Ваш бургер будет готов через 7 минут! " + burgerPrice + "грн");
+        } else if (numberTwoStep == 1) {
+            System.out.println("с дополнительным соусом " + (saus + burgerPrice) + "грн");
+        } else if (numberTwoStep == 2) {
+            System.out.println("с дополнительным сыром " + (cheese + burgerPrice) + "грн");
+        } else if (numberTwoStep == 3) {
+            System.out.println("с дополнительной котлетой " + (meat + burgerPrice) + "грн");
+        } else {
+            System.out.println("Подтвердите свой заказ " + (burgerPrice) + "грн");
         }
     }
+}
+
